@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 1597314251}
   - component: {fileID: 1597314250}
   m_Layer: 0
-  m_Name: crosshair035
+  m_Name: LaserMaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1772,7 +1772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597314249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 2.14, z: 1.09}
+  m_LocalPosition: {x: 0.11, y: 0.34, z: 2.58}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6578,6 +6578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0, g: 0, b: 1, a: 1}
   maxDistance: 50
+  laserMaker: {fileID: 1597314251}
 --- !u!4 &7831224454414211880
 Transform:
   m_ObjectHideFlags: 0
