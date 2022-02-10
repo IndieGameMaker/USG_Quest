@@ -7,7 +7,7 @@ public class LaserPointer : MonoBehaviour
     private RaycastHit hit;
     private LineRenderer line;
     public Color color = Color.blue;
-    public float maxDistance = 30.0f;
+    public float maxDistance = 50.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +40,13 @@ public class LaserPointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+        {
+            line.SetPosition(1, Vector3.forward * hit.distance);
+        }
+        else
+        {
+            line.SetPosition(1, Vector3.forward * maxDistance);
+        }
     }
 }
