@@ -43,5 +43,12 @@ public class ControllerManager : MonoBehaviour
         {
             Debug.Log("오른손 Index Trigger 터치");
         }
+
+        if (OVRInput.Get(OVRInput.Touch.PrimaryThumbstick, rightController))
+        {
+            Debug.Log("조이스틱 터치");
+            Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, rightController);
+            Debug.Log($"pos = ({axis.x}/{axis.y})");
+        }
     }
 }
