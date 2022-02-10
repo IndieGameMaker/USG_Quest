@@ -8,6 +8,7 @@ public class LaserPointer : MonoBehaviour
     private LineRenderer line;
     public Color color = Color.blue;
     public float maxDistance = 50.0f;
+    public Transform laserMaker;
 
     // Start is called before the first frame update
     void Start()
