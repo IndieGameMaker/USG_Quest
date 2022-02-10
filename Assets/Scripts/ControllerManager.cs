@@ -44,6 +44,9 @@ public class ControllerManager : MonoBehaviour
         if (OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger, rightController))
         {
             Debug.Log("오른손 Index Trigger 터치");
+
+            float value = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, rightController);
+            img.fillAmount = value;
         }
 
         // 조이스틱 터치 여부

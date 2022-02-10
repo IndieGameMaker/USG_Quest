@@ -261,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftController: 1
   rightController: 2
+  img: {fileID: 769075494}
 --- !u!1 &489904857
 GameObject:
   m_ObjectHideFlags: 0
