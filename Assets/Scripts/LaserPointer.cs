@@ -44,7 +44,7 @@ public class LaserPointer : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
             line.SetPosition(1, Vector3.forward * hit.distance);
-            laserMaker.position = hit.point + laserMaker.forward * 0.1f;
+            laserMaker.position = hit.point + laserMaker.forward * 0.01f;
             // 각도를 법선벡터 방향으로 회전
             laserMaker.rotation = Quaternion.LookRotation(hit.normal);
             laserMaker.GetComponent<SpriteRenderer>().color = Color.yellow;
