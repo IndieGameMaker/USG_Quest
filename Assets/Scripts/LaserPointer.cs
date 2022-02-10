@@ -47,12 +47,14 @@ public class LaserPointer : MonoBehaviour
             laserMaker.position = hit.point;
             // 각도를 법선벡터 방향으로 회전
             laserMaker.rotation = Quaternion.LookRotation(hit.normal);
+            laserMaker.GetComponent<SpriteRenderer>().color = Color.yellow;
         }
         else
         {
             line.SetPosition(1, Vector3.forward * maxDistance);
             laserMaker.position = transform.position + (transform.forward * maxDistance);
             laserMaker.rotation = Quaternion.LookRotation(transform.position);
+            laserMaker.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 }
