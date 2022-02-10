@@ -20,6 +20,10 @@ public class ControllerManager : MonoBehaviour
             1. Combine 방식
                 PrimaryIndexTrigger - 왼손 트리거
                 SecondrayIndexTrigger - 오른손 트리거
+            2. Individual 방
+                PrimaryIndexTrigger, LTouch
+                PrimaryIndexTrigger, RTouch
+                
         */
 
         // Combine 방식
@@ -31,6 +35,13 @@ public class ControllerManager : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
         {
             Debug.Log("왼손 그랩버튼 클릭");
+        }
+
+        // Individual 방식
+        // 정전압 방식 터치
+        if (OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger, rightController))
+        {
+            Debug.Log("오른손 Index Trigger 터치");
         }
     }
 }
