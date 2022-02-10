@@ -48,6 +48,17 @@ public class LaserPointer : MonoBehaviour
             // 각도를 법선벡터 방향으로 회전
             laserMaker.rotation = Quaternion.LookRotation(hit.normal);
             laserMaker.GetComponent<SpriteRenderer>().color = Color.yellow;
+
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch))
+            {
+                StartCoroutine(Teleport(hit.point));
+            }
+#if UNITY_EDITOR
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(Teleport(hit.point));
+            }
+#endif
         }
         else
         {
@@ -57,4 +68,30 @@ public class LaserPointer : MonoBehaviour
             laserMaker.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
+
+    IEnumerator Teleport(Vector3 pos)
+    {
+        OVRScreenFade.instance.fadeTime = 0.0f;
+        OVRScreenFade.instance.FadeOut();
+
+        transform.root.position = pos + (Vector3.up * 1.8f);
+
+        yield return new WaitForSeconds(0.1f);
+
+        OVRScreenFade.instance.fadeTime = 0.2f;
+        OVRScreenFade.instance.FadeIn();
+    }
 }
+
+/*
+    ADB
+
+    명령프롬프트
+    Gitbash Shell
+    // 근접센서 비활성
+    $ adb shell am broadcast -a com.oculus.vrpowermanager.automation_disable
+
+    // 근접센서를 활성화
+    $ adb shell am broadcast -a com.oculus.vrpowermanager.prox_close
+
+*/
