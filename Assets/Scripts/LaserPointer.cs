@@ -53,7 +53,7 @@ public class LaserPointer : MonoBehaviour
         {
             line.SetPosition(1, Vector3.forward * maxDistance);
             laserMaker.position = transform.position + (transform.forward * maxDistance);
-            laserMaker.rotation = Quaternion.LookRotation(transform.position);
+            laserMaker.rotation = Quaternion.LookRotation(transform.forward);
             laserMaker.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
