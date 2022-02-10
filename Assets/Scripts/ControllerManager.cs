@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ControllerManager : MonoBehaviour
 {
     public OVRInput.Controller leftController = OVRInput.Controller.LTouch;
     public OVRInput.Controller rightController = OVRInput.Controller.RTouch;
     public Image img;
+    public TMP_Text posText;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,7 @@ public class ControllerManager : MonoBehaviour
         {
             Debug.Log("오른손 Index Trigger 터치");
 
+            // 버튼을 누르는 감도
             float value = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, rightController);
             img.fillAmount = value;
         }
@@ -54,7 +57,8 @@ public class ControllerManager : MonoBehaviour
         {
             Debug.Log("조이스틱 터치");
             Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, rightController);
-            Debug.Log($"pos = ({axis.x}/{axis.y})");
+            //Debug.Log($"pos = ({axis.x}/{axis.y})");
+            posText.text = $"pos = ({axis.x:0.00}/{axis.y:0.00})";
         }
 
         // 오른손 그랩 - 진동
