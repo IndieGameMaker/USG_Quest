@@ -44,11 +44,26 @@ public class ControllerManager : MonoBehaviour
             Debug.Log("오른손 Index Trigger 터치");
         }
 
+        // 조이스틱 터치 여부
         if (OVRInput.Get(OVRInput.Touch.PrimaryThumbstick, rightController))
         {
             Debug.Log("조이스틱 터치");
             Vector2 axis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick, rightController);
             Debug.Log($"pos = ({axis.x}/{axis.y})");
         }
+
+        // 오른손 그랩 - 진동
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, rightController))
+        {
+            StartCoroutine(Haptic(0.3f));
+        }
+
+    }
+
+    IEnumerator Haptic(float duration)
+    {
+        OVRInput.SetControllerVibration(0.8f, 0.9f, rightController);
+        yield return new WaitForSeconds(duration);
+        OVRInput.SetControllerVibration(0, 0, rightController);
     }
 }
